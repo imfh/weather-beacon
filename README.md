@@ -13,4 +13,4 @@ Using the principles of <a href="http://en.wikipedia.org/wiki/Ambient_device">am
 
 <em>Pulsing</em> = precipitation tomorrow
 
-This project is a physical object based on the site <http://wthr.im">wthr.im</a>
+This project is a physical object based on the site <a href="http://wthr.im">wthr.im</a>
