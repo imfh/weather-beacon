@@ -2,7 +2,7 @@
 #include <Ethernet.h>
 
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
-char serverName[] = "lessismorecast.com";
+char serverName[] = "wthr.im";                   // your server with beacon.php
 EthernetClient client;
 
 const int whitePin = 9;
@@ -50,9 +50,9 @@ void loop() {
 
 void displayForecast() {
  
-  digitalWrite(whitePin, LOW);                   // Reset LED to off
-  digitalWrite(redPin, LOW);                     // Reset LED to off
-  digitalWrite(bluePin, LOW);                    // Reset LED to off
+  digitalWrite(whitePin, LOW);                   // reset LED to off
+  digitalWrite(redPin, LOW);                     // reset LED to off
+  digitalWrite(bluePin, LOW);                    // reset LED to off
   
   if (forecast == ">S") {                        // same temperature - white LED
     digitalWrite(whitePin, HIGH);
@@ -142,7 +142,7 @@ void getForecast() {
       } 
       
       if (currentLine.endsWith("<text>")) {      // if the current line ends with <text>, it will be followed by the forecast
-        readingforecast = true;                  // Clear the forecast string
+        readingforecast = true;                  // clear the forecast string
         forecast = "";
       }
 
@@ -151,7 +151,7 @@ void getForecast() {
           forecast += inChar;
         } 
         else {
-          readingforecast = false;               // End of forecast if "<" character is reached
+          readingforecast = false;               // end of forecast if "<" character is reached
           Serial.println(forecast);   
           Serial.println("disconnecting...");
           client.stop();                         // close the connection to the server
@@ -169,13 +169,13 @@ void getForecast() {
 void connectToServer() {
  
   // attempt to connect, and wait a millisecond:
-  delay(1000);                                   // give the Ethernet shield a second to initialize
+  delay(1000);                                   // give the ethernet shield a second to initialize
   Serial.println("connecting...");
-  if (client.connect(serverName, 80)) {          // Connect to server
+  if (client.connect(serverName, 80)) {          // connect to server
     Serial.println("connected...");
     // make HTTP GET request to twitter:
-    client.println("GET /oakland.php HTTP/1.0");   // Make a HTTP request
-    client.println("HOST: lessismorecast.com");
+    client.println("GET /beacon.php HTTP/1.0");  // make a HTTP request
+    client.println("HOST: wthr.im");             // your server
     client.println("User-Agent: Arduino 1.0");
     client.println();
   }
