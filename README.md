@@ -19,4 +19,4 @@ The Ambient Weather Beacon filters the data and simplifies the forecast:
 
 <img src="http://fh.io/wp-content/uploads/beacon-banner.jpg">
 
-This project is a physical object based on the site <a href="http://wthr.im">wthr.im</a>
+This project is a physical object based on the site <a href="http://wthr.im">wthr.im</a> and more information may be found on the <a href="http://fh.io/ambient-weather-beacon/">Ambient Weather Beacon site</a>.
